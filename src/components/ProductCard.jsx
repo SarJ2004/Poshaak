@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { addToCart } from "../redux/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
-
 function ProductCard({ product }) {
   console.log(product);
   const _id = product.title;
@@ -15,6 +14,7 @@ function ProductCard({ product }) {
   console.log(rootId);
   const navigate = useNavigate();
   // this handleDetails will have an additional data as state, which will contain an item, which will give access to the product
+  // this will give the product page the access to the details. we can grab the details by using useLocation hook.
   const handleDetails = () => {
     navigate(`/product/${rootId}`, {
       state: {

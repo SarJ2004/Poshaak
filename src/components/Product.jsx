@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../redux/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
+
 function Product() {
   const dispatch = useDispatch();
   const [details, setDetails] = useState({});
@@ -11,7 +12,8 @@ function Product() {
   const location = useLocation();
   useEffect(() => {
     setDetails(location.state.item);
-  }, []);
+  }, [location.state.item]);
+  console.log(location.state.item);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
